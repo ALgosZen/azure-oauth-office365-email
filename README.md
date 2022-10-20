@@ -42,9 +42,9 @@ App must be registered in Azure portal. Registration involves in generatating fo
 As a best practice, request the least privileged permissions that your app needs in order to access data and function correctly. Requesting permissions with more than the necessary privileges is poor security practice, which may cause users to refrain from consenting and affect your app's usage.
 
 Protocol	Permission scope string
-IMAP	https://outlook.office.com/IMAP.AccessAsUser.All
-POP	https://outlook.office.com/POP.AccessAsUser.All
-SMTP AUTH	https://outlook.office.com/SMTP.Send
+* IMAP	https://outlook.office.com/IMAP.AccessAsUser.All 
+* POP	https://outlook.office.com/POP.AccessAsUser.All
+* SMTP AUTH	https://outlook.office.com/SMTP.Send
 
 This is available in Azure portal -> API permissions -> Add permissions -> Application permissions -> choose  POP.AccessAsApp , IMAP.AccessAsApp etc., 
 
