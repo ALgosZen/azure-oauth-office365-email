@@ -50,3 +50,6 @@ This is available in Azure portal -> API permissions -> Add permissions -> Appli
 
 ### Generate client secret:
 ![SECRET](/images/img5.png?raw=true "SECRET")
+
+### Enable public client flows:
+![SECRET](/images/img6.png?raw=true "SECRET")

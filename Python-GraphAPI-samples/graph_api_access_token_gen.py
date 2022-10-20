@@ -13,30 +13,32 @@ CLIENT_SECRET ="lO~8Q~~IvOzfsomeSFUtcF5QUwfT2L22qvxQndaP"
 authority_url = "https://login.microsoftonline.com/consumers/"
 base_url = "https://graph.microsoft.com/v1.0"
 endpoint =  base_url + "me"
-SCOPES = ['User.Read','User.Export.All']
+SCOPES = ['User.Read']
 
-# authenticate with auth code
-client_instance = ConfidentialClientApplication(client_id=APPLICATION_ID,client_credential=CLIENT_SECRET, authority=authority_url)
+# method 2 : login to aquire access token
+# Enable Enable public client flows and save it.
+app = PublicClientApplication(APPLICATION_ID, authority=authority_url)
 
-authorization_req_url = client_instance.get_authorization_request_url(SCOPES)
-print(authorization_req_url)
+accounts = app.get_accounts()
+print(accounts)
+if accounts:
+    app.acquire_token_silent(scopes=SCOPES, account=accounts[0])
 
-#webbrowser.get('safari').open_new_tab(authorization_req_url)
+flow = app.initiate_device_flow(scopes=SCOPES)
+print(flow)
 
-# paste the auth code from the url generated above 
-auth_code = "M.R3_BAY.0a3b6e06-5a0c-6ccc-0974-615a6d0b39fe"
+# open the url
+app_code = flow['user_code']
+webbrowser.get('safari').open_new(flow['verification_uri'])
 
-access_token_json = client_instance.acquire_token_by_authorization_code(
-    code=auth_code,
-    scopes=SCOPES
-)
-print(access_token_json)
+# to aquire access token
 
-access_token_id = access_token_json['access_token']
-headers = {'Authorization': 'Bearer'+access_token_id}
-base_url = "https://graph.microsoft.com/v1.0"
+result = app.acquire_token_by_device_flow(flow)
+
+access_token_id = result['access_token']
+headers = {'Authorization': 'Bearer'+ access_token_id}
 endpoint =  base_url + "me"
 
 response = requests.get(endpoint, headers=headers)
-
-
+print(response)
+print(response.json())

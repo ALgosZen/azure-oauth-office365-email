@@ -1,3 +1,5 @@
+# method 1: authenticate with auth code
+
 import webbrowser
 import requests
 from msal import PublicClientApplication 
@@ -19,10 +21,11 @@ client_instance = ConfidentialClientApplication(client_id=APPLICATION_ID,client_
 authorization_req_url = client_instance.get_authorization_request_url(SCOPES)
 print(authorization_req_url)
 
-#webbrowser.get('safari').open_new_tab(authorization_req_url)
+# webbrowser.get('safari').open_new_tab(authorization_req_url)
+
 
 # paste the auth code from the url generated above 
-auth_code = "M.R3_BAY.0a3b6e06-5a0c-6ccc-0974-615a6d0b39fe"
+auth_code = "M.R3_BAY.bef561b3-7f8f-69ae-5d5e-3d591730eab5"
 
 access_token_json = client_instance.acquire_token_by_authorization_code(
     code=auth_code,
@@ -32,9 +35,10 @@ print(access_token_json)
 
 access_token_id = access_token_json['access_token']
 headers = {'Authorization': 'Bearer'+access_token_id}
-base_url = "https://graph.microsoft.com/v1.0"
-endpoint =  base_url + "me"
 
-response = requests.get(endpoint, headers=headers)
+emailsEndpoint =  base_url + "me/messages"
 
+response = requests.get(emailsEndpoint, headers=headers)
 
+print(response)
+print(response.json())
