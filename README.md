@@ -48,8 +48,5 @@ SMTP AUTH	https://outlook.office.com/SMTP.Send
 
 This is available in Azure portal -> API permissions -> Add permissions -> Application permissions -> choose  POP.AccessAsApp , IMAP.AccessAsApp etc., 
 
- ![SAML](/images/img2.png?raw=true "SAML")
-
-
 ### Generate client secret:
 ![SECRET](/images/img5.png?raw=true "SECRET")
