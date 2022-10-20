@@ -37,22 +37,19 @@ App must be registered in Azure portal. Registration involves in generatating fo
 •	Client secret: A password or a public/private key pair that your app uses to authenticate with the Microsoft identity platform. (Not needed for native or mobile apps.)
 
 
-### How do I get set up? ###
+![SAML](/images/img2.png?raw=true "SAML")
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+As a best practice, request the least privileged permissions that your app needs in order to access data and function correctly. Requesting permissions with more than the necessary privileges is poor security practice, which may cause users to refrain from consenting and affect your app's usage.
 
-### Contribution guidelines ###
+Protocol	Permission scope string
+IMAP	https://outlook.office.com/IMAP.AccessAsUser.All
+POP	https://outlook.office.com/POP.AccessAsUser.All
+SMTP AUTH	https://outlook.office.com/SMTP.Send
 
-* Writing tests
-* Code review
-* Other guidelines
+This is available in Azure portal -> API permissions -> Add permissions -> Application permissions -> choose  POP.AccessAsApp , IMAP.AccessAsApp etc., 
 
-### Who do I talk to? ###
+ ![SAML](/images/img2.png?raw=true "SAML")
 
-* Repo owner or admin
-* Other community or team contact
+
+### Generate client secret:
+![SECRET](/images/img5.png?raw=true "SECRET")
