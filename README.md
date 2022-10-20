@@ -2,7 +2,10 @@
 auth using OAuth and read emails from outlook
 
 ### reference doc :
-https://github.com/ALgosZen/azure-oauth-office365-email.git
+https://learn.microsoft.com/en-us/exchange/client-developer/legacy-protocols/how-to-authenticate-an-imap-pop-smtp-application-by-using-oauth
+
+### Graph API Explorer:
+https://developer.microsoft.com/en-us/graph/graph-explorer
 
 
 ![OAuth2](/images/img1.png?raw=true "Azure OAuth2")
