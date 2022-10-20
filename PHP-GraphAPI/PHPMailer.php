@@ -1,4 +1,9 @@
 <?php
+/*
+ *   Retrieves and sends messages from an Exchange Online mailbox using MS Graph API
+ *
+ *   https://katystech.blog/2020/08/php-graph-mailer/
+ */
 class graphMailer {
 
     var $tenantID;
