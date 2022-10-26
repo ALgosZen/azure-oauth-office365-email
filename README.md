@@ -54,6 +54,7 @@ This is available in Azure portal -> API permissions -> Add permissions -> Appli
 ### Enable public client flows:
 ![SECRET](/images/img6.png?raw=true "SECRET")
 
+#### ------------------------------------------------------------
 #### Scenario: Daemon application that calls web APIs (Non interactive Method) 
 - https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-daemon-overview
 
@@ -72,7 +73,13 @@ This is available in Azure portal -> API permissions -> Add permissions -> Appli
 
 ![img7](/images/img7.png?raw=true "img7")
 ![img8](/images/img8.png?raw=true "img8")
+- make note of secret value and not secret id
 ![img9](/images/img9.png?raw=true "img9")
 - Make sure to 'Grant Admin Consent'
 ![img10](/images/img10.png?raw=true "img10")
 - Make sure to 'Grant Admin Consent'
+
+Now run the code pythonMailerOAuth2.py and test the app. you can also test from Graph explorer to troubleshoot any issues
+bonus : Once you get token using the program , u can decrypt and check if it has all the app permissions it has - decrypted using jwt.ms
+- https://jwt.ms
+#### ----------------------------------------------------------
