@@ -53,3 +53,26 @@ This is available in Azure portal -> API permissions -> Add permissions -> Appli
 
 ### Enable public client flows:
 ![SECRET](/images/img6.png?raw=true "SECRET")
+
+#### Scenario: Daemon application that calls web APIs (Non interactive Method) 
+- https://learn.microsoft.com/en-us/azure/active-directory/develop/scenario-daemon-overview
+
+- During application registration, the reply URI isn't needed. Share secrets or certificates or signed assertions with Azure AD. You also need to request application permissions and grant admin consent to use those app permissions.
+- The application configuration needs to provide client credentials as shared with Azure AD during the application registration.
+- The scope used to acquire a token with the client credentials flow needs to be a static scope.
+
+#### Steps to follow :
+1. App Registration
+2. Code Configuration
+3. Aquire Token
+4. Call a web API
+5. Move to Production
+
+- see the flow in pictures below
+
+![img7](/images/img7.png?raw=true "img7")
+![img8](/images/img8.png?raw=true "img8")
+![img9](/images/img9.png?raw=true "img9")
+- Make sure to 'Grant Admin Consent'
+![img10](/images/img10.png?raw=true "img10")
+- Make sure to 'Grant Admin Consent'
